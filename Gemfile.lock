@@ -44,7 +44,7 @@ GEM
       erubi (~> 1.11)
       rails-dom-testing (~> 2.2)
       rails-html-sanitizer (~> 1.6)
-    active_transaction (0.1.0)
+    active_transaction (0.1.2)
       dry-transaction
       dry-validation
     activejob (8.0.0)
