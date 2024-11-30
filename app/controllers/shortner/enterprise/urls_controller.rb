@@ -6,12 +6,12 @@ module Shortner
       def show
         @url = Shortner::Enterprise::Urls::ShowTransaction.new.call(id: params[:id])
         return head 404 if @url.failure?
-
-        render "shortner/simple/urls/show", locals: { url: @url.success }
+        render :show, locals: { url: @url.success }
       end
 
       def new
-        render :new, locals: { url: Url.new }
+        @url = Url.new
+        @path = shortner_enterprise_urls_path
       end
 
       def create

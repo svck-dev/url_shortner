@@ -9,6 +9,7 @@ module Shortner
 
       def new
         @url = Url.new
+        @path = shortner_simple_urls_path
       end
 
       def create
