@@ -10,16 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2024_11_29_194642) do
+ActiveRecord::Schema[8.0].define(version: 2024_11_30_105832) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
   enable_extension "pgcrypto"
+
+  # Custom types defined in this database.
+  # Note that some types may not work with other database engines. Be careful if changing database.
+  create_enum "source", ["simple", "enterprise"]
 
   create_table "urls", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "slug"
     t.string "original"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.enum "source", default: "simple", null: false, enum_type: "source"
     t.index ["slug"], name: "index_urls_on_slug", unique: true
+    t.index ["source"], name: "index_urls_on_source"
   end
 end
