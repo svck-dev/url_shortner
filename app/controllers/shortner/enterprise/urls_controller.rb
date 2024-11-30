@@ -1,5 +1,6 @@
 class Shortner::Enterprise::UrlsController < ApplicationController
   def show
+    @url = Shortner::Enterprise::Urls::ShowTransaction.call(params)
   end
 
   def new
