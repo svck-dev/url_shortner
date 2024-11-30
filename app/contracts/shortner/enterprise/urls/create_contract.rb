@@ -12,4 +12,8 @@ class Shortner::Enterprise::Urls::CreateContract < ActiveTransaction::Applicatio
       key.failure("has already been taken") if Url.exists?(slug: value)
     end
   end
+
+  rule(:original) do
+    key.failure("is not a valid URL") unless value.match?(URI::DEFAULT_PARSER.make_regexp)
+  end
 end
