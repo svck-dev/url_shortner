@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   namespace :shortner do
     namespace :simple do
-      resources :urls, only: [:show, :new, :create]
+      resources :urls, only: [ :show, :new, :create ]
     end
   end
   get "up" => "rails/health#show", as: :rails_health_check
