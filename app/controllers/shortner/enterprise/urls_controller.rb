@@ -9,6 +9,10 @@ class Shortner::Enterprise::UrlsController < ApplicationController
   end
 
   def create
+    url = Shortner::Enterprise::Urls::CreateTransaction.new.call(url_params)
+    return redirect_to shortner_enterprise_url_path(url) if url.success?
+
+    render :new, status: :unprocessable_entity, locals: { url: url }
   end
 
   private
