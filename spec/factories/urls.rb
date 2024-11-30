@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :url do
     slug { SecureRandom.alphanumeric(6) }

@@ -1,22 +1,24 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.describe "Shortner::Simple::Urls", type: :request do
-  describe "GET /shortner/simple/urls/new" do
-    it "returns http success" do
+RSpec.describe 'Shortner::Simple::Urls', type: :request do
+  describe 'GET /shortner/simple/urls/new' do
+    it 'returns http success' do
       get new_shortner_simple_url_path
       expect(response).to have_http_status(:success)
     end
   end
 
-  describe "GET /shortner/simple/urls/:id" do
-    it "returns http success" do
+  describe 'GET /shortner/simple/urls/:id' do
+    it 'returns http success' do
       url = create(:url)
       get shortner_simple_url_path(url)
       expect(response).to have_http_status(:success)
     end
   end
 
-  describe "POST /shortner/simple/urls" do
+  describe 'POST /shortner/simple/urls' do
     context 'with valid params' do
       it 'redirects to the show page' do
         post shortner_simple_urls_path, params: { url: attributes_for(:url) }

@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   namespace :shortner do
     namespace :enterprise do
-      resources :urls, only: [ :show, :new, :create ]
+      resources :urls, only: %i[show new create]
     end
     namespace :simple do
-      resources :urls, only: [ :show, :new, :create ]
+      resources :urls, only: %i[show new create]
     end
   end
   get "up" => "rails/health#show", as: :rails_health_check
