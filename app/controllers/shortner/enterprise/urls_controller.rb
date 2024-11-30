@@ -1,6 +1,7 @@
 class Shortner::Enterprise::UrlsController < ApplicationController
   def show
     @url = Shortner::Enterprise::Urls::ShowTransaction.call(params)
+    head 404 if @url.failure?
   end
 
   def new
