@@ -38,12 +38,12 @@ jobs:
       - name: Lint code for consistent style
         run: bin/rubocop -f github
 
-      - name: Prepare the database
+      - name: Prepare the database and assets
         env:
           RAILS_ENV: test
           DATABASE_URL: postgres://postgres:postgres@localhost:5432
           RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
-        run: bundle exec rails db:prepare
+        run: bundle exec rails db:prepare && bundle exec rails assets:precompile
 
       - name: Run spec
         env:
