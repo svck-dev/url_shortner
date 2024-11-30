@@ -1,6 +1,6 @@
 class Shortner::Simple::UrlsController < ApplicationController
   def show
-    @url = Url.find(params[:id])
+    render :show, locals: { url: Url.find(params[:id]) }
   end
 
   def new

@@ -8,7 +8,7 @@ class Shortner::Enterprise::Urls::CreateTransaction < ActiveTransaction::Applica
 
   def validate(input)
     contract = Shortner::Enterprise::Urls::CreateContract.new
-    result = contract.call(input)
+    result = contract.call(input.to_h)
     return Failure(result.errors.to_h) if result.failure?
 
     Success(result.to_h)
