@@ -7,6 +7,6 @@ class Url < ApplicationRecord
 
   private
   def generate_slug
-    self.slug = SecureRandom.alphanumeric(6)
+    self.slug = SecureRandom.alphanumeric(6) if self.slug.blank?
   end
 end

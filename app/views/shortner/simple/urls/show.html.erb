@@ -1,2 +1,14 @@
-<h1>Shortner::Simple::Urls#show</h1>
-<p>Find me in app/views/shortner/simple/urls/show.html.erb</p>
+<div class="max-w-sm rounded overflow-hidden shadow-lg p-4 bg-white">
+  <div class="mb-4">
+    <h2 class="text-xl font-bold text-gray-900">Shortened URL</h2>
+  </div>
+  <div class="mb-4">
+    <p class="text-gray-700"><strong>Original URL:</strong> <%= @url.original %></p>
+  </div>
+  <div class="mb-4">
+    <p class="text-gray-700"><strong>Slug:</strong> <%= @url.slug %></p>
+  </div>
+  <div class="mb-4">
+    <p class="text-gray-700"><strong>Shortened URL:</strong> <%= shortner_simple_url_url(@url) %></p>
+  </div>
+</div>
