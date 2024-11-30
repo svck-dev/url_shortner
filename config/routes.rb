@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   namespace :shortner do
+    namespace :enterprise do
+      resources :urls, only: [ :show, :new, :create ]
+    end
     namespace :simple do
       resources :urls, only: [ :show, :new, :create ]
     end
