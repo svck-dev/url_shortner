@@ -5,9 +5,13 @@ export default class extends Controller {
   copy() {
     const url = this.urlTarget.textContent.trim().split(' ').pop()
     navigator.clipboard.writeText(url).then(() => {
-      alert('URL copied to clipboard ' + url )
+      this.showNotification(`URL copied to clipboard ${url}`)
     }).catch(err => {
       console.error('Could not copy text: ', err)
     })
+  }
+
+  showNotification(message) {
+      alert(message) // in case we need to change this to an actual notification
   }
 }
