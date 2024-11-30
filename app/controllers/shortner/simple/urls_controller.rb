@@ -8,7 +8,7 @@ class Shortner::Simple::UrlsController < ApplicationController
   end
 
   def create
-    @url = Url.new(url_params.merge(source: 'simple'))
+    @url = Url.new(url_params.merge(source: "simple"))
     if @url.save
       redirect_to shortner_simple_url_path(@url)
     else
