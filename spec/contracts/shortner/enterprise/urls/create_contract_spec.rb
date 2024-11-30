@@ -18,7 +18,7 @@ RSpec.describe Shortner::Enterprise::Urls::CreateContract, type: :contract do
       it 'returns a failure' do
         result = contract.call(slug: 'slug!', original: 'https://example.com')
 
-        expect(result.errors.to_h).to eq(slug: ['must be alphanumeric'])
+        expect(result.errors.to_h).to eq(slug: [ 'must be alphanumeric' ])
       end
     end
 
@@ -28,7 +28,7 @@ RSpec.describe Shortner::Enterprise::Urls::CreateContract, type: :contract do
       it 'returns a failure' do
         result = contract.call(slug: url.slug, original: 'https://example.com')
 
-        expect(result.errors.to_h).to eq(slug: ['has already been taken'])
+        expect(result.errors.to_h).to eq(slug: [ 'has already been taken' ])
       end
     end
   end
@@ -46,7 +46,7 @@ RSpec.describe Shortner::Enterprise::Urls::CreateContract, type: :contract do
       it 'returns a failure' do
         result = contract.call(slug: 'slug', original: 'example.com')
 
-        expect(result.errors.to_h).to eq(original: ['is not a valid URL'])
+        expect(result.errors.to_h).to eq(original: [ 'is not a valid URL' ])
       end
     end
   end

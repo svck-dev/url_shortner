@@ -9,7 +9,7 @@ RSpec.describe Shortner::Enterprise::Urls::ShowContract, type: :contract do
       it 'returns a failure' do
         result = contract.call(id: 'invalid')
 
-        expect(result.errors.to_h).to eq(id: ['is invalid'])
+        expect(result.errors.to_h).to eq(id: [ 'is invalid' ])
       end
     end
 
